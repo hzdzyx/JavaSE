@@ -40,5 +40,7 @@ public class StudentData {
      */
     private static void init() {
         // TODO 待实现
+        
+        }
     }
 }
