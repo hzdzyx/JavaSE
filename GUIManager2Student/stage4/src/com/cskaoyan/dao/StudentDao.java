@@ -71,4 +71,6 @@ public interface StudentDao {
      * @since 16:29
      */
     Student[] getStudentsByName(String name);
+    boolean updateCellByStuId(String stuId, int column, String newValue);
+    int updateStudentByStuId(String stuId, Student newStu);
 }

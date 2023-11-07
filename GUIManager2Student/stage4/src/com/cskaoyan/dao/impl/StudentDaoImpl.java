@@ -110,4 +110,65 @@ public class StudentDaoImpl implements StudentDao {
         }
         return result;
     }
+    @Override
+    public boolean updateCellByStuId(String stuId, int column, String newValue) {
+        Student target = getStudentByStuId(stuId);
+        if (target == null) {
+            // 未找到目标学生
+            return false;
+        }
+        // 找到目标学生,更新目标学生的信息
+        switch (column) {
+            case 1:
+                target.setName(newValue);
+                break;
+            case 2:
+                target.setGender(newValue);
+                break;
+            case 3:
+                target.setSchool(newValue);
+                break;
+            case 4:
+                target.setMajor(newValue);
+                break;
+            case 5:
+                target.setAge(newValue);
+                break;
+            case 6:
+                target.setCity(newValue);
+                break;
+            case 7:
+                target.setPhone(newValue);
+                break;
+            case 8:
+                target.setEmail(newValue);
+                break;
+            default:
+                return false;
+        }
+        return true;
+    }
+    @Override
+    public int updateStudentByStuId(String stuId, Student newStu) {
+        Student target = getStudentByStuId(stuId);
+        if (target == null) {
+            // 未找到目标学生
+            return 2;
+        }
+        // 找到目标学生,更新目标学生的信息
+        if (target.equals(newStu)) {
+            // 两个对象相等,无需修改
+            return 1;
+        }
+        // 两个对象不相等,修改成功
+        target.setName(newStu.getName());
+        target.setGender(newStu.getGender());
+        target.setSchool(newStu.getSchool());
+        target.setMajor(newStu.getMajor());
+        target.setAge(newStu.getAge());
+        target.setCity(newStu.getCity());
+        target.setPhone(newStu.getPhone());
+        target.setEmail(newStu.getEmail());
+        return 0;
+    }
 }

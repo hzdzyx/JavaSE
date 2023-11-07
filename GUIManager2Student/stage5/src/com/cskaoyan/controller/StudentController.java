@@ -163,7 +163,7 @@ public class StudentController {
      */
     public String[][] ascendingSortById() {
         // TODO 待实现
-        return null;
+        return studentService.ascendingSortById();
     }
 
     /**
@@ -176,7 +176,7 @@ public class StudentController {
      */
     public String[][] descendingSortByAge() {
         // TODO 待实现
-        return null;
+        return studentService.descendingSortByAge();
     }
 
     /**
@@ -194,6 +194,6 @@ public class StudentController {
      */
     public String[][] totalSort() {
         // TODO 待实现
-        return null;
+        return studentService.totalSort();
     }
 }

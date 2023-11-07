@@ -118,4 +118,13 @@ public class StudentServiceImpl implements StudentService {
         return new String[][]{{
                 stu.getStuId(), stu.getName(), stu.getGender(), stu.getSchool(), stu.getMajor(), stu.getAge(), stu.getCity(), stu.getPhone(), stu.getEmail()}};
     }
+
+    @Override
+    public boolean updateCellByStuId(String stuId, int column, String newValue) {
+        return studentDao.updateCellByStuId(stuId, column, newValue);
+    }
+    @Override
+    public int updateStudentByStuId(String stuId, Student newStu) {
+        return studentDao.updateStudentByStuId(stuId, newStu);
+    }
 }

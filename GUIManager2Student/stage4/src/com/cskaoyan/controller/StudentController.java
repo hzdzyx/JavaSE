@@ -137,40 +137,7 @@ public class StudentController {
      */
     public boolean updateCellByStuId(String targetStuId, int targetCol, String newValue) {
         // TODO 待实现
-        String[][] targetStudent = studentService.
-        if(targetCol==1){
-            targetStudent[0][1]=newValue;
-            return true;
-        }
-        if(targetCol==2){
-            targetStudent[0][2]=newValue;
-            return true;
-        }
-        if(targetCol==3){
-            targetStudent[0][3]=newValue;
-            return true;
-        }
-        if(targetCol==4){
-            targetStudent[0][4]=newValue;
-            return true;
-        }
-        if(targetCol==5){
-            targetStudent[0][5]=newValue;
-            return true;
-        }
-        if(targetCol==6){
-            targetStudent[0][6]=newValue;
-            return true;
-        }
-        if(targetCol==7){
-            targetStudent[0][7]=newValue;
-            return true;
-        }
-        if(targetCol==8){
-            targetStudent[0][8]=newValue;
-            return true;
-        }
-        return false;
+        return studentService.updateCellByStuId(targetStuId, targetCol, newValue);
     }
 
     /**
@@ -187,6 +154,6 @@ public class StudentController {
      */
     public int updateStudentByStuId(String targetStuId, Student newStu) {
         // TODO 待实现
-        return 0;
+        return studentService.updateStudentByStuId(targetStuId, newStu);
     }
 }

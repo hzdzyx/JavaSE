@@ -184,7 +184,7 @@ public class CheckAndHandleUtils {
         if (name == null || "".equals(name)) {
             return 1;
         }
-        if (name.length() > 5 || name.length() < 2) {
+        if (name.length() > 5 || name.length() < 1) {
             return 2;
         }
         // 正常

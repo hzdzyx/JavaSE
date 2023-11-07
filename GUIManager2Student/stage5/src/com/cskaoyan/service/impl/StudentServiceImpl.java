@@ -5,7 +5,11 @@ import com.cskaoyan.dao.impl.StudentDaoImpl;
 import com.cskaoyan.model.Student;
 import com.cskaoyan.service.StudentService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * controller层依赖service层完成业务逻辑处理
@@ -129,5 +133,46 @@ public class StudentServiceImpl implements StudentService {
     private String[][] get2DStrArrByStudent(Student stu) {
         return new String[][]{{
                 stu.getStuId(), stu.getName(), stu.getGender(), stu.getSchool(), stu.getMajor(), stu.getAge(), stu.getCity(), stu.getPhone(), stu.getEmail()}};
+    }
+    public String[][] ascendingSortById(){
+        Student[] allRealStudents = studentDao.getAllRealStudents();
+        Arrays.sort(allRealStudents);
+        return get2DStrArrByStudentArr(allRealStudents);
+    }
+    public String[][] descendingSortByAge(){
+        Student[] allRealStudents = studentDao.getAllRealStudents();
+        List<Student> list = new ArrayList<>();
+        for (int i = 0; i < allRealStudents.length; i++) {
+            if (allRealStudents[i] != null) {
+                list.add(allRealStudents[i]);
+            }
+        }
+        Comparator<Student> descendingSortByAgeComparator = (Student s1,Student s2) -> Integer.parseInt(s2.getAge()) - Integer.parseInt(s1.getAge());
+        Collections.sort(list,descendingSortByAgeComparator);
+        return get2DStrArrByStudentArr(list.toArray(new Student[list.size()]));
+    }
+    public String[][] totalSort(){
+        Student[] allRealStudents = studentDao.getAllRealStudents();
+        List<Student> list = new ArrayList<>();
+        for (int i = 0; i < allRealStudents.length; i++) {
+            if (allRealStudents[i] != null) {
+                list.add(allRealStudents[i]);
+            }
+        }
+    Comparator<Student> totalSortComparator = (Student s1,Student s2) -> {
+        if(s1.getGender().equals(s2.getGender())){
+            if(s1.getSchool().length()==s2.getSchool().length()){
+                return s1.getPhone().substring(0,3).compareTo(s2.getPhone().substring(0,3));
+            }
+            else{
+                return s1.getSchool().length()-s2.getSchool().length();
+            }
+        }
+        else{
+            return s1.getGender().compareTo(s2.getGender());
+        }
+    };
+    Collections.sort(list,totalSortComparator);
+    return get2DStrArrByStudentArr(list.toArray(new Student[list.size()]));
     }
 }

@@ -114,4 +114,7 @@ public interface StudentService {
      * @since 11:52
      */
     int updateStudentByStuId(String targetStuId, Student newStu);
+    String[][] ascendingSortById();
+    String[][] descendingSortByAge();
+    String[][] totalSort();
 }

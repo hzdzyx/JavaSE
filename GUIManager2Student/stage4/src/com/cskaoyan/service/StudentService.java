@@ -85,6 +85,6 @@ public interface StudentService {
      * @author wuguidong@cskaoyan.onaliyun.com
      * @since 16:16
      */
-    String[][] getResultByName(String name);
-
+    boolean updateCellByStuId(String stuId, int column, String newValue);
+    int updateStudentByStuId(String stuId, Student newStu);
 }

@@ -6,7 +6,7 @@ package com.cskaoyan.model;
  * @author wuguidong@com.com.cskaoyan.onaliyun.com
  */
 // TODO 待实现自然排序
-public class Student {
+public class Student implements Comparable<Student>{
     // 学号
     private String stuId;
     // 姓名
@@ -137,5 +137,17 @@ public class Student {
         result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
         result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
         return result;
+    }
+    @Override
+    public int compareTo(Student o) {
+        if(Integer.parseInt(this.getStuId())<Integer.parseInt(o.getStuId())){
+            return -1;
+    }
+    else if(Integer.parseInt(this.getStuId())>Integer.parseInt(o.getStuId())){
+            return 1;
+    }
+    else{
+            return 0;
+    }
     }
 }
