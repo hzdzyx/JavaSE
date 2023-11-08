@@ -3,6 +3,7 @@
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$/GUIManager2Student/stage2" dumb="true">
       <sourceFolder url="file://$MODULE_DIR$/GUIManager2Student/stage2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/GUIManager2Student/stage2/src/test" isTestSource="true" />
     </content>
   </component>
 </module>
