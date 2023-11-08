@@ -8,4 +8,4 @@ stuId=7,name=苏铭,gender=男,school=复旦大学,major=软件工程,age=43,cit
 stuId=8,name=罗峰,gender=男,school=武汉大学,major=机械工程,age=9,city=武汉,phone=13713137631,email=123@qq.com
 stuId=9,name=萧衍,gender=男,school=aaa,major=,age=22,city=北京,phone=13512381293,email=123@qq.com
 stuId=10,name=上官若,gender=男,school=清华大学,major=计算机科学与技术,age=31,city=长沙,phone=13712383128,email=666@qq.com
-stuId=11,name=AAAAA,gender=男,school=武汉理工大学,major=采矿工程,age=22,city=北京,phone=13511111111,email=123@qq.com
+stuId=11,name=AAAAA,gender=男,school=武汉理工大学,major=采矿,age=22,city=北京,phone=13511111111,email=123@qq.com

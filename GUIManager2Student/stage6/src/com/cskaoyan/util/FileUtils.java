@@ -9,5 +9,5 @@ import java.io.File;
  */
 public class FileUtils {
     // TODO 路径名待补全
-    public static final File studentsFile = new File("students.txt");
+    public static final File studentsFile = new File("GUIManager2Student/stage6/students.txt");
 }

@@ -2,6 +2,8 @@ package com.cskaoyan.service;
 
 import com.cskaoyan.model.Student;
 
+import java.io.IOException;
+
 /**
  * 这个接口中定义了与Student相关业务逻辑操作
  * @since 11:29
@@ -146,4 +148,5 @@ public interface StudentService {
      * @since 15:35
      */
     String[][] get2DStrArrTotalSort();
+    boolean saveDataToFile() throws IOException;
 }

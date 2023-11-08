@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  * 学生管理系统-登陆成功后，主页面，菜单页面
@@ -107,7 +108,12 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         // 按钮3：保存至文件
         menusButs[2].addActionListener(e -> {
             // 点击保存执行的操作
-            boolean flag = studentController.saveDataToFile();
+            boolean flag = false;
+            try {
+                flag = studentController.saveDataToFile();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             if (flag) {
                 ShowWindowUtils.showInfo("保存成功!");
                 return;

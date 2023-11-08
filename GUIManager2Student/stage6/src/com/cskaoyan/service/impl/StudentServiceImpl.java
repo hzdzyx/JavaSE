@@ -8,6 +8,7 @@ import com.cskaoyan.service.StudentService;
 import com.cskaoyan.util.FileUtils;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -172,5 +173,29 @@ public class StudentServiceImpl implements StudentService {
     private String[][] get2DStrArrByStudent(Student stu) {
         return new String[][]{{
                 stu.getStuId(), stu.getName(), stu.getGender(), stu.getSchool(), stu.getMajor(), stu.getAge(), stu.getCity(), stu.getPhone(), stu.getEmail()}};
+    }
+    public boolean saveDataToFile() throws FileNotFoundException {
+        Student[] allRealStudents = studentDao.getAllRealStudents();
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FileUtils.studentsFile));
+            for (int i = 0; i < allRealStudents.length; i++) {
+                String stuId = allRealStudents[i].getStuId();
+                String name = allRealStudents[i].getName();
+                String gender = allRealStudents[i].getGender();
+                String school = allRealStudents[i].getSchool();
+                String major = allRealStudents[i].getMajor();
+                String age = allRealStudents[i].getAge();
+                String city = allRealStudents[i].getCity();
+                String phone = allRealStudents[i].getPhone();
+                String email = allRealStudents[i].getEmail();
+                String line = "stuId="+stuId+",name="+name+",gender="+gender+",school="+school+",major="+major+",age="+age+",city="+city+",phone="+phone+",email="+email+'\n';
+                bufferedWriter.write(line);
+            }
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            return true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

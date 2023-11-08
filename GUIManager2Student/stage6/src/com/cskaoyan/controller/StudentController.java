@@ -4,6 +4,7 @@ import com.cskaoyan.model.Student;
 import com.cskaoyan.service.StudentService;
 import com.cskaoyan.service.impl.StudentServiceImpl;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -201,8 +202,8 @@ public class StudentController {
      * @author wuguidong@cskaoyan.onaliyun.com
      * @since 10:36
      */
-    public boolean saveDataToFile() {
+    public boolean saveDataToFile() throws IOException {
         // TODO 待实现
-        return false;
+        return studentService.saveDataToFile();
     }
 }

@@ -38,6 +38,10 @@ public class Student implements Comparable<Student> {
         this.email = email;
     }
 
+    public Student() {
+
+    }
+
     // 除了学号id其余属性都需要G/S方法
     public String getStuId() {
         return stuId;
@@ -145,5 +149,9 @@ public class Student implements Comparable<Student> {
         int id = Integer.parseInt(stuId);
         int id2 = Integer.parseInt(o.getStuId());
         return id - id2;
+    }
+
+    public void setStuId(String s) {
+        this.stuId = s;
     }
 }
