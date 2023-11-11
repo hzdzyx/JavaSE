@@ -1,12 +1,15 @@
 package com.cskaoyan.model;
 
+import java.io.Serializable;
+
 /**
  * 学生实体类
  * @since 10:00
  * @author wuguidong@com.com.cskaoyan.onaliyun.com
  */
 // TODO 待实现可序列化
-public class Student implements Comparable<Student> {
+public class Student implements Comparable<Student>, Serializable {
+    private static final long serialVersionUID = -1170043913074475984L;
     // 学号
     private String stuId;
     // 姓名

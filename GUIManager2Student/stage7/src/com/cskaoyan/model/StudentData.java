@@ -17,7 +17,7 @@ public class StudentData {
 
     static {
         // 初始化
-        init();
+            init();
         // 表格列数据
         COLUMNS = new String[]{"学号", "姓名", "性别", "学校", "专业", "年龄", "城市", "手机号", "电子邮箱"};
     }
@@ -35,6 +35,26 @@ public class StudentData {
      * @since 11:08
      */
     private static void init() {
-        // TODO 待完成
+        // 1,创建反序列流对象
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(FileUtils.studentsFile));
+            // 2,读取文件中的Student数组对象
+            Student[] students = (Student[]) ois.readObject();
+            // 3,将该数组中的Student对象赋值给数据源数组STUDS
+            STUDS = students;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            // 4,关闭流
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException("关闭流失败");
+            }
+        }
     }
 }

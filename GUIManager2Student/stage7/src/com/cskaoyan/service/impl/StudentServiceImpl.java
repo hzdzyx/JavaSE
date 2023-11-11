@@ -18,7 +18,7 @@ import java.util.Arrays;
  * @since 10:18
  * @author wuguidong@com.com.cskaoyan.onaliyun.com
  */
-public class StudentServiceImpl implements StudentService {
+public class StudentServiceImpl implements StudentService{
     // 业务处理需要获取数据,所以需要依赖数据处理层
     private StudentDao studentDao = new StudentDaoImpl();
 
@@ -170,5 +170,30 @@ public class StudentServiceImpl implements StudentService {
     private String[][] get2DStrArrByStudent(Student stu) {
         return new String[][]{{
                 stu.getStuId(), stu.getName(), stu.getGender(), stu.getSchool(), stu.getMajor(), stu.getAge(), stu.getCity(), stu.getPhone(), stu.getEmail()}};
+    }
+
+    @Override
+    public boolean saveDataToFile(){
+        // 1,创建序列流对象
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(FileUtils.studentsFile));
+            // 2,将数据源数组写入文件
+            oos.writeObject(StudentData.STUDS);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            // 3,关闭流
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException("关闭流失败");
+            }
+        }
     }
 }

@@ -146,4 +146,5 @@ public interface StudentService {
      * @since 15:35
      */
     String[][] get2DStrArrTotalSort();
+    boolean saveDataToFile();
 }
